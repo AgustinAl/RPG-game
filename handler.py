@@ -1,4 +1,6 @@
 from model import *
+#import model
+from main import *
 room_dict = {
     "start": Room("#write des", ["kitchen" , "HG"], NoMonster()),
     "kitchen": Room("#write des", ["start"], Goblin()),
