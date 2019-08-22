@@ -14,8 +14,12 @@ class Player (object):
 
     def attack(self, targetCharacter):
         targetCharacter.hp = targetCharacter.hp - self.damage
+        print("%s did %d damage to %s" % (self.name, self.damage, targetCharacter.name))
+        self.reportHealth()
+        targetCharacter.reportHealth()
         if targetCharacter.hp <= 0:
             targetCharacter.isDead = True
+            print("%s has died" % (targetCharacter.name))
 
 
 class User (object):
@@ -36,6 +40,8 @@ class Monster (object):
         if targetCharacter.hp <= 0:
             targetCharacter.isDead = True
 #def get_damage (self, amouDam)
+    def reportHealth (self):
+        print("%s has %d hp " % (self.name, self.hp))
 
 class Room(object):
     def __init__(self, _description , _connectedRooms, _enemy):
@@ -49,7 +55,7 @@ class Goblin(Monster):
         self.hp = 100
         self.level = 1
         self.damage = 20
-        
+
 class Hobgoblin(Monster):
     def __init__ (self):
         self.name = "HobGoblin"
@@ -73,9 +79,9 @@ class NoMonster(Monster):
 
 goblin1 = Goblin ()
 player1 = Player ("Austin",1,200,30)
-player1.reportHealth()
-print(goblin1.hp)
+
+
 player1.attack(goblin1)
-print(goblin1.hp)
-goblin1.attack(player1)
-player1.reportHealth()
+player1.attack(goblin1)
+player1.attack(goblin1)
+player1.attack(goblin1)
