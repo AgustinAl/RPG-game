@@ -1,0 +1,31 @@
+html {
+  background-color: #111222;
+  color: #ffdf00;
+  font-family: Comic sans-serif;
+  max-width: 800px;
+}
+h1{
+  font-size: 76px;
+  position: relative;
+
+
+}
+#centerBoi
+{
+  position:relative;
+  top: 600px;
+  left: 500px;
+
+}
+#image
+{
+  position: absolute;
+  height: 95%;
+  width: 95%;
+}
+#ImageBoi
+{
+  position: relative;
+  width: 200px;
+  length: 180px;
+}
