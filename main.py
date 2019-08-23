@@ -16,16 +16,24 @@ room14 = "You go through a metal door, and find yourself in a library. Rows and 
 room15 = "You're almost there to the end of the dungeon. And wouldn't you know it, you come across the treasure room. There are chests filled with gold coins everywhere. Gold everywhere you look, Hooray! You grab a huge handful of gold eagerly, and upon closer inspection you're happiness starts to fade. They're pennies, just covered in gold paint. Well {{Name of user}}, at least you can pay for the bus ride home. It's not all bad though because you come across the legendary Stick of Truth! The most powerful weapon of all time. And yes it's made of gold {{Name of User}}, the legends said it is. With more courage and slightly richer, you press onward. Or you go back for some reason."
 room16 = "You entered the final room {{Name of User}}. The throne room. A long regal hallway with a throne made out of stone. And who is smugly sitting there on the throne. None other than the Goblin King himself. This is going to be a tough one {{Name of User}}. Not many have seen or even fought a Goblin King , and for good reason too. Armed with your stick, you face him head on!"
 
+img1=""
+img2=""
+img3=""
+img4=""
+img5=""
+img6=""
+
 room_dict = {
-    "start": Room( room11, ["kitchen" , "HG"], NoMonster()),
-    "kitchen": Room(room12, ["start"], Goblin()),
-    "HG": Room(room13, ["start" , "Lib","Treasure"], Hobgoblin()),
-    "Lib": Room(room14, ["HG"], NoMonster()),
-    "Treasure": Room(room15, ["HG","FB"], NoMonster()),
-    "FB": Room(room16, ["Treasure"], GoblinKing()),
+    "start": Room( room11, ["kitchen" , "HG"], NoMonster(),img1),
+    "kitchen": Room(room12, ["start"], Goblin(),img2),
+    "HG": Room(room13, ["start" , "Lib","Treasure"], Hobgoblin(),img3),
+    "Lib": Room(room14, ["HG"], Goblin(),img4),
+    "Treasure": Room(room15, ["HG","FB"], NoMonster(),img5),
+    "FB": Room(room16, ["Treasure"], GoblinKing(),img6),
 }
 
-current_room_key = "start"
+#current_room_key = "start"
+
 
 class LoginPageHandler(webapp2.RequestHandler):
     def get(self):
@@ -33,11 +41,15 @@ class LoginPageHandler(webapp2.RequestHandler):
         self.response.write(result_template.render())
 
 class PlayPageHandler(webapp2.RequestHandler):
-    def get(self):
+    def post(self):
+        current_room_key = self.request.get("roomchoice")
+        if current_room_key == "":
+            current_room_key = "start"
 
         var_dict = {
-            "Des_for_template": room_dict[current_room_key].description
+            "Cur_for_dict": room_dict[current_room_key]
         }
+
         result_template = the_jinja_env.get_template('templates/main.html')
         self.response.write(result_template.render(var_dict))
 

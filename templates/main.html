@@ -4,15 +4,23 @@
   <title>The Game</title>
 </head>
 <body>
-  <h2> {{ Des_for_template }} </h2>
+  <img src = "{{ Cur_for_dict.img }}">
+  <h2> {{ Cur_for_dict.description }} </h2>
   <section>
+    <form method="post" action="/game">
       <section>
       </section>
       <select>
-        <option value="Attack">Attack</option>
-        <option value="Run">Run</option>
+        <!--<option value="Attack">Attack</option>
+        <option value="Run">Run</option> -->
+      </select>
+      <select name="roomchoice">
+        {% for x in Cur_for_dict.connectedRooms%}
+        <option value= {{ x }}> {{ x }}</option>
+          {%endfor%}
       </select>
       <input type="submit">
+    </form>
   </section>
 
 </body>
