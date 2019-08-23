@@ -43,6 +43,7 @@ class Monster (object):
     def reportHealth (self):
         print("%s has %d hp " % (self.name, self.hp))
 
+
 class Room(object):
     def __init__(self, _description , _connectedRooms, _enemy):
         self.connectedRooms = _connectedRooms
@@ -56,6 +57,15 @@ class Goblin(Monster):
         self.level = 1
         self.damage = 20
 
+    def attack(self, targetCharacter):
+        targetCharacter.hp = targetCharacter.hp - self.damage
+        print("%s did %d damage to %s" % (self.name, self.damage, targetCharacter.name))
+        self.reportHealth()
+        targetCharacter.reportHealth()
+        if targetCharacter.hp <= 0:
+            targetCharacter.isDead = True
+            print("%s has died" % (targetCharacter.name))
+
 class Hobgoblin(Monster):
     def __init__ (self):
         self.name = "HobGoblin"
@@ -63,6 +73,14 @@ class Hobgoblin(Monster):
         self.level = 2
         self.damage = 30
 
+    def attack(self, targetCharacter):
+        targetCharacter.hp = targetCharacter.hp - self.damage
+        print("%s did %d damage to %s" % (self.name, self.damage, targetCharacter.name))
+        self.reportHealth()
+        targetCharacter.reportHealth()
+        if targetCharacter.hp <= 0:
+            targetCharacter.isDead = True
+            print("%s has died" % (targetCharacter.name))
 class GoblinKing(Monster):
     def __init__ (self):
         self.name = "Goblin King"
@@ -70,6 +88,14 @@ class GoblinKing(Monster):
         self.level = 3
         self.damage = 50
 
+    def attack(self, targetCharacter):
+        targetCharacter.hp = targetCharacter.hp - self.damage
+        print("%s did %d damage to %s" % (self.name, self.damage, targetCharacter.name))
+        self.reportHealth()
+        targetCharacter.reportHealth()
+        if targetCharacter.hp <= 0:
+            targetCharacter.isDead = True
+            print("%s has died" % (targetCharacter.name))
 class NoMonster(Monster):
     def __init__ (self):
         self.name = "None"
@@ -77,11 +103,10 @@ class NoMonster(Monster):
         self.level = 0
         self.damage = 0
 
-goblin1 = Goblin ()
-player1 = Player ("Austin",1,200,30)
+goblin1 = GoblinKing ()
+player1 = Player ("ken", 1, 100, 100)
 
 
 player1.attack(goblin1)
-player1.attack(goblin1)
-player1.attack(goblin1)
+goblin1.attack(player1)
 player1.attack(goblin1)
