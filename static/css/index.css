@@ -17,9 +17,15 @@ h1{
   left: 500px;
 
 }
-img
+#image
 {
   position: absolute;
   height: 95%;
   width: 95%;
+}
+#ImageBoi
+{
+  position: relative;
+  width: 200px;
+  length: 180px;
 }

@@ -16,12 +16,12 @@ room14 = "You go through a metal door, and find yourself in a library. Rows and 
 room15 = "You're almost there to the end of the dungeon. And wouldn't you know it, you come across the treasure room. There are chests filled with gold coins everywhere. Gold everywhere you look, Hooray! You grab a huge handful of gold eagerly, and upon closer inspection you're happiness starts to fade. They're pennies, just covered in gold paint. Well {{Name of user}}, at least you can pay for the bus ride home. It's not all bad though because you come across the legendary Stick of Truth! The most powerful weapon of all time. And yes it's made of gold {{Name of User}}, the legends said it is. With more courage and slightly richer, you press onward. Or you go back for some reason."
 room16 = "You entered the final room {{Name of User}}. The throne room. A long regal hallway with a throne made out of stone. And who is smugly sitting there on the throne. None other than the Goblin King himself. This is going to be a tough one {{Name of User}}. Not many have seen or even fought a Goblin King , and for good reason too. Armed with your stick, you face him head on!"
 
-img1=""
-img2=""
-img3=""
-img4=""
-img5=""
-img6=""
+img1="static/Assets/big_bf9a559ea9.png"
+img2="static/Assets/Goblin Chef-1.png.png"
+img3="static/Assets/Hobgoblin-1.png.png"
+img4="static/Assets/Goblin-1.png.png"
+img5="static/Assets/Golden Stick-1.png.png"
+img6="static/Assets/Goblin king-1.png.png"
 
 room_dict = {
     "start": Room( room11, ["kitchen" , "HG"], NoMonster(),img1),

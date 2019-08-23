@@ -2,9 +2,10 @@
 <html>
 <head>
   <title>The Game</title>
+    <link rel="stylesheet" href="../static/css/index.css">
 </head>
 <body>
-  <img src = "{{ Cur_for_dict.img }}">
+  <img id= "ImageBoi" src = "{{ Cur_for_dict.img }}">
   <h2> {{ Cur_for_dict.description }} </h2>
   <section>
     <form method="post" action="/game">

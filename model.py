@@ -45,11 +45,11 @@ class Monster (object):
 
 
 class Room(object):
-    def __init__(self, _description , _connectedRooms, _enemy):
+    def __init__(self, _description , _connectedRooms, _enemy,_img):
         self.connectedRooms = _connectedRooms
         self.description = _description
         self.enemy = _enemy
-
+        self.img = _img
 class Goblin(Monster):
     def __init__ (self):
         self.name = "Goblin"
