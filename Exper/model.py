@@ -23,9 +23,9 @@ class Player (object):
 
 
 class User (object):
-    def __init__(self, _username, _player):
+    def __init__(self, _username, _password):
         self.username = _username
-        self.player = _player
+        self.password = _password
 
 class Monster (object):
     def __init__(self, _name, _damage, _level, _hp):

@@ -29,3 +29,10 @@ h1{
   width: 200px;
   length: 180px;
 }
+#imh
+{
+  background-image: url('/static/Assets/cave-1566591820830-2932.jpg');
+  position: absolute;
+  height: 95%;
+  width: 95%;
+}

@@ -2,6 +2,8 @@ import webapp2
 import jinja2
 import os
 from model import *
+from google.appengine.api import users
+from google.appengine.ext import ndb
 #from handler import *
 
 the_jinja_env = jinja2.Environment(
@@ -38,7 +40,30 @@ room_dict = {
 class LoginPageHandler(webapp2.RequestHandler):
     def get(self):
         result_template = the_jinja_env.get_template('templates/pass.html')
-        self.response.write(result_template.render())
+        currentUser = users.get_current_user()
+        if currentUser:
+            print("Current User: %s" % currentUser)
+            print("Current User ID: %s" % currentUser.user_id())
+            #RPG_user = .get_by_id(currentUser.user_id())
+
+            #we can find them in database
+            if :
+            #make them register    
+            else:
+            #if RPG_user:
+                #user = RPG_user.
+
+        else:
+            self.response.write(result_template.render())
+            """
+            RPG_user = LoginInfo(
+                uName=self.request.get('username'),
+                pWord=self.request.get('password'),
+                id=user.user_id())
+                """
+        #RPG_user.put()
+
+
 
 class PlayPageHandler(webapp2.RequestHandler):
     def post(self):
